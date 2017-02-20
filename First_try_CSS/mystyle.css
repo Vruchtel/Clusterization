@@ -1,0 +1,114 @@
+H1 {
+  /*color: #007099;*/
+  color: #8b4513;
+  font-size: 200%;
+  font-family: Arial, Verdana, sans-serif;
+  text-align: center;
+}
+P {
+  padding-left: 20px;
+  line-height: 1.6; /*Межстрочный интервал*/
+  font-size: 110% /*Размер шрифта*/
+}
+BODY {
+  background-color: peachpuff;
+}
+P.notice { /*СЕЛЕКТОР КЛАССА*/
+  margin-left: 60px; /*Отступ слева*/
+  padding-left: 15px; /*Расстояние от линии до текста*/
+  line-height: 2.2; /*Межстрочный интервал*/
+  font-size: 80%; /*Размер шрифта*/
+  color: crimson;
+  border-left: 1px solid crimson; /*Граница слева от текста*/
+}
+#highlight { /*СЕЛЕКТОР ИДЕНТИФИКАТОРА*/
+  color: #800000; /* Красный цвет текста */
+  border: 1px solid brown; /* Параметры рамки */
+  background: #ffe4e1; /* Цвет фона */
+  padding: 5px; /* Поля вокруг текста */
+}
+
+/*СЕЛЕКТОРЫ ПОТОМКОВ*/
+P B { /*Стиль будет применяться к тегу B, когда он размещается внутри тега P*/
+  color: #b22222;
+  font-size: 120%;
+}
+
+/*КОМБИНИРОВАНИЕ СЕЛЕКТОРОВ (СОСЕДНИЕ СЕЛЕКТОРЫ)*/
+B + I { /*Стиль будет применяться к тегу I, когда он рсположен сразу за тегом B*/
+  color: darkorange;
+  font-size: 120%;
+}
+
+/*ДОЧЕРНИЕ СЕЛЕКТОРЫ*/
+P > I { /*Стиль применяется к селектору I только в том случае, если он непосредственно вложен в селектор P*/
+	color: peru;
+}
+
+/*СЕЛЕКТОРЫ АТРИБУТОВ*/
+Q {/*Обычный селектор тега*/
+	font-style: italic; /* Курсивное начертание */
+}
+Q[title] {
+  color: darkorange; /*Стиль применяется к тем тегам, внутри которой указан заданный атрибут*/
+}
+
+/*ПСЕВДОКЛАССЫ*/
+A { /*Обычный селектор тега*/
+  color: black;
+  font-size: 110%;
+  padding-left: 20px;
+}
+A:active { /*При нажатии мышкой на ссылку её цвет изменится*/
+  color: #ff4500;
+}
+
+/*СХЛОПЫВАНИЕ ГРАНИЦ*/
+TABLE {
+  width: 40%; /* Ширина таблицы */
+  border: 4px dotted lightcoral; /* Рамка вокруг таблицы */
+  border-collapse: collapse; /* Отображать только одинарные линии*/  
+  margin: auto; /* Выравниваем таблицу по центру окна */
+}
+TH { /* Заголовочные ячейки таблицы */
+  text-align: center; /* Выравнивание по центру */
+  background: bisque; /* Цвет фона ячеек */
+  padding: 5px; /* Поля вокруг содержимого ячеек */
+  border: 2px dotted lightcoral; /* Граница вокруг ячеек */
+}
+TD { /* Основные ячейки таблицы */
+  padding: 5px; /* Поля вокруг содержимого ячеек */
+  border: 2px dotted lightcoral; /* Граница вокруг ячеек */
+}
+
+/*СВОЙСТВО box-sizing*/
+.box1 { 
+  background: mistyrose; /* Цвет фона */
+  width: 300px; /* Ширина блока */
+  padding: 10px; /* Поля */
+  border: 2px solid #000; /* Параметры рамки */
+}
+.box2 { 
+  background: #fff5ee; /* Цвет фона */
+  width: 300px; /* Ширина блока */
+  padding: 10px; /* Поля */
+  margin-top: 10px; /* Отступ сверху */
+  border: 2px solid #000; /* Параметры рамки */
+  -moz-box-sizing: border-box; /* Для Firefox */  
+  box-sizing: border-box; /* Ширина блока с полями */
+}
+
+/*Модуль FlexBox*/
+.my-flex-container {
+  display: flex;
+  flex-direction: row; /* Направление главной оси - слева направо */
+  justify-content: space-around; /* Выравнивание по главной оси - все блоки равномерно распределены вдоль главной оси
+								    разделяя всё свободное пространство поровну*/
+  align-items: center; /* Выравнивание по поперечной оси - блоки располагаются в центре поперечной оси */
+  border: 2px solid firebrick; /* Параметры рамки */
+}
+
+.my-flex-block {
+  display: flex;
+  color: indianred;
+}
