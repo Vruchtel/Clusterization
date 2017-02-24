@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<!-- Тег meta для указания кодировки -->
+	<meta charset="utf-8">
+	<title>Обучение JS, продолжение</title>
+</head>
+
+<body>
+		
+	<p>Попытайтесь ввести какие-нибудь числа в окошки ниже. Со вторым окошком у Вас это вряд ли получится.</p>
+	
+	<form name="first_form", type="text">
+		<input name="first_input", value="1", onchange="alert('Вы ввели значение: ' + this.value)">
+		<input name="second_input", value="2", onfocus="alert('Привет!')">
+	</form>
+	
+	<script>
+		// input
+		var form = document.forms.first_form;
+		var elem = form.elements[0];
+		alert("Значение в первой форме: " + elem.value); // 1
+		elem.value = "15";
+		alert("Новое значение в первой форме: " + elem.value); // 15
+	</script>
+	
+	<p>Введите Ваше имя в окошко ниже и нажмите на кнопку "Отправить"!</p>
+
+	<form name="textarea_form">
+		<textarea name="first_textarea" placeholder="Ваше имя" ></textarea>
+		<input name="send" value="Отправить" type="button">
+	</form>
+	
+	<script>
+		// textarea
+		var textarea_form = document.forms.textarea_form;
+		var send_elem = textarea_form.elements.send;
+		send_elem.onclick = function() {
+			alert("Ваше имя: " + textarea_form.elements.first_textarea.value);
+		}
+	</script>
+	
+	<p>А теперь решите, какой музыкальный жанр вам больше по душе и нажмите кнопку "Выбрать"!</p>
+	
+	<form name="selection_form">
+		<select name="genre" multiple>
+			<option value="блюз" selected>Мягкий блюз</option>
+			<option value="рок" selected>Жёсткий рок</option>
+			<option value="классика">Классика</option>
+		</select>
+		<input name="choose" value="Выбрать" type="button">
+	</form>
+
+	<script>
+		// select, option
+		
+		var form = document.forms.selection_form;
+		var preferences = form.elements.genre;
+		var choose_button = form.elements[1];
+		
+		function showPref() {
+			for (var i = 0; i < preferences.options.length; i++) {
+				var option = preferences.options[i];
+				if(option.selected) {
+					alert("Вы выбрали жанр: " +  option.value);
+				}
+			}
+		}
+		
+		choose_button.addEventListener("click", showPref);				
+	</script>
+	
+	<p>В поле ниже впишите свою фамилию. Обратите внимание: все буквы станут большими!</p>
+	
+	<form name="surname_form", type="text">
+		<input name="area_for_surname", value="">
+	</form>
+	
+	<script>
+		// Коды клавиш
+		
+		/* Получение символа в keypress */
+		// event.type должен быть keypress
+		function getChar(event) {
+			if (event.which == null) { // IE
+				if (event.keyCode < 32) return null; // спец. символ
+				return String.fromCharCode(event.keyCode)
+			}
+
+			if (event.which != 0 && event.charCode != 0) { // все кроме IE
+				if (event.which < 32) return null; // спец. символ
+				return String.fromCharCode(event.which); // остальные
+			}
+			return null; // спец. символ
+		}
+		
+		/* Перевод символов в верхний регистр */
+		var form = document.forms.surname_form;
+		form.area_for_surname.onkeypress = function(elem) {
+			// спец. сочетание - не обрабатываем
+			if (elem.ctrlKey || elem.altKey || elem.metaKey) return;
+			
+			var curChar = getChar(elem);
+			
+			if (!curChar) return; // спец. символ - не обрабатываем
+			
+			this.value += curChar.toUpperCase();
+			
+			return false;
+		}
+	</script>
+	
+	<p>Дальше будет форма с вложенными блоками. Нажмите на любой из них и посмотрите, что произойдёт.</p>
+	
+	<form style="border: 1px solid red; margin: 10px" onclick="alert('Вы нажали на внешнюю форму')">
+		Это форма, созданная для того, чтобы показать, как всплывают события.
+		<div style="border: 1px solid green; margin: 10px" onclick="alert('Вы нажали на внутренний блок внешней формы')">
+			Это внутренний блок формы.
+			<p style="border: 1px solid blue; margin: 10px" onclick="alert('Вы нажали на внутренний блок внутреннего блока')">
+				Это внутренний блок предыдущего внутреннего блока.</p>
+		</div>
+	</form>
+	
+	<p>Теперь нажмите на кнопку "Submit", чтобы отправить изменения на сервер. Страничка запустится снова.</p>
+	
+	<form onsubmit="alert('Спасибо! Изменения отправлены!')">
+		<input type="submit" value="Submit">
+	</form>
+	
+</body>
+
+</html>
