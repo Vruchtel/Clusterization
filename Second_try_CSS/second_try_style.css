@@ -1,0 +1,141 @@
+H1 {
+	color: #6a15d1;
+	font-size: 200%;
+	font-family: Arial, Verdana, sans-serif;
+	text-align: center;
+}
+
+H2 {
+	color: #31d472;
+	font-size: 180%;
+	font-family: Arial, Verdana, sans-serif;
+	text-align: center;
+	line-height: 4;
+}
+
+.block1 {
+	text-align: center;
+	background: #ffff8c; /* Цвет фона */
+	width: 200px; /* Ширина блока */
+	height: 100px; /* Высота блока */
+	padding: 10px; /* Поля */
+	border: 1px solid #000; /* Параметры рамки */
+	margin: auto; /*Выравниваем блок по центру окна*/
+}
+
+.block2 {
+	text-align: center;
+	background: #ff91c8; /* Цвет фона */
+	width: 200px; /* Ширина блока */
+	height: 100px; /* Высота блока */
+	padding: 10px; /* Поля */
+	border: 1px solid #000; /* Параметры рамки */
+	margin: auto; /*Выравниваем блок по центру окна*/
+}
+
+
+.block1:hover { /*При наведении мышки должна произойти трансформация*/
+	transform: scaleX(2);
+	transition: all 0.5s ease-in-out
+}
+
+.block2:hover { /*При наведении мышки должна произойти трансформация*/
+	transform: rotate(720deg);
+	transform-origin: 20% 50%; /*Точка трансформации*/
+	transition: all 1s ease-in-out
+}
+
+.circle {
+	border-radius: 50%;
+	text-align: center;
+	background: #91c8ff; /* Цвет фона */
+	width: 70px; /* Ширина блока */
+	height: 70px; /* Высота блока */
+	padding: 10px; /* Поля */
+	border: 1px solid #000; /* Параметры рамки */
+	margin: auto;
+	transition-property: background;
+	transition-duration: 2s;
+	transition-timing-function: ease-in-out;
+	transition-delay: .3s;
+}
+
+.circle:hover {
+	background: red;
+}
+
+
+/*BOOTSTRAP. РАЗМЕТКА.*/
+
+.col-md-9 {
+	border: 1px solid #000; /* Параметры рамки */
+}
+
+.col-md-12 {
+	border: 1px solid #000; /* Параметры рамки */
+}
+
+.col-md-3 {
+	border: 1px solid #000; /* Параметры рамки */
+}
+
+.col-md-4 {
+	border: 1px solid #000; /* Параметры рамки */
+}
+
+
+/*СВОЙСТВО FLOAT*/
+/*Свойство float определяет, по какой стороне будет выравниваться элемент, при этом все остальные элементы будут оптекать его с др. сторон*/
+.streamlined_block {
+	float: left;
+	background: #fd0; /* Цвет фона */
+    border: 1px solid black; /* Параметры рамки */
+    padding: 10px; /* Поля вокруг текста */
+    margin-right: 20px; /* Отступ справа */
+    width: 35%; /* Ширина блока */
+}
+
+/*СВОЙСТВО CLEAR*/
+/*Устанавливает, с какой стороны элемента запрещено его обтекание другими элементами.*/
+/*Если задано обтекание с помощью float, то clear отменяет его действие для указанных сторон.*/
+.not_streamlined_block {
+	float: left;
+	background: #a5ff87; /* Цвет фона */
+    border: 1px solid black; /* Параметры рамки */
+    padding: 10px; /* Поля вокруг текста */
+    margin-right: 20px; /* Отступ справа */
+    width: 35%; /* Ширина блока */
+}
+
+
+/*ЗНАЧЕНИЕ RELATIVE СВОЙСТВА POSITION*/
+.layer1 {
+	position: relative; /* Относительное позиционирование */
+    background: #f0f0f0; /* Цвет фона */
+    height: 200px; /* Высота блока */
+}
+
+.layer2 {
+	position: absolute; /* Абсолютное позиционирование */
+    bottom: 50px; /* Положение от нижнего края */
+    left: 1200px; /* Положение от левого края */
+    line-height: 10px;
+}
+
+
+/*СВОЙСТВО Z-INDEX*/
+.layer3 {
+	position: relative;
+	font-size: 50px;
+	color: #000080; /* Синий цвет текста */
+}
+
+.layer4 {
+	position: relative;
+	font-size: 80px;
+	color: #ffa500; /* Оранжевый цвет текста */
+	top: -75px; /* Сдвигаем текст вверх */
+    left: 5px; /* Сдвигаем текст вправо */
+}
+
+
