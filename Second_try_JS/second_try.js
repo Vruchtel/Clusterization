@@ -3,9 +3,9 @@
 // input
 var form = document.forms.first_form;
 var elem = form.elements[0];
-alert("Значение в первой форме: " + elem.value); // 1
-elem.value = "15";
-alert("Новое значение в первой форме: " + elem.value); // 15
+//alert("Значение в первой форме: " + elem.value); // 1
+//elem.value = "15";
+//alert("Новое значение в первой форме: " + elem.value); // 15
 
 
 // textarea
