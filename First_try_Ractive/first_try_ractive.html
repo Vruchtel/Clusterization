@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Обучение Ractive</title>
+</head>
+
+<body>
+	<script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+	<script src='http://cdn.ractivejs.org/latest/ractive.js'></script>
+	
+	<link rel="stylesheet" href="first_try_ractive.css">
+	
+	<h1 style='text-align: center'>Обучение Ractive</h1>
+	
+	<div id='container'></div>
+	
+	<script id="template" type="text/ractive">
+		<p>Hello world!</p>
+		<p style="color: {{color}}; font-size: {{size}}em; font-family: {{font}};">
+			{{greeting}}, {{name}}!
+		</p>
+		
+		<button id="count">Эта кнопка была нажата {{counter}} раз</button>
+		
+		<h2>Nested properties.</h2>
+		<p>Здесь будет информация о студенте. Его имя - {{student.name}}.</p>
+		
+		{{#with student}}
+			<p>Студент {{name}} - {{age}} лет. Родители: {{parents.mother}} и {{parents.father}}.</p>
+			<h2>Expressions.</h2>
+			<p>Время работы: {{ format_time(worked_time) }}</p>
+			<p>Увеличили время работы на единицу: {{worked_time + 1}}</p>
+			<p>Если бы {{name}} работал от самого рождения, работая по {{format_time(worked_time)}} в день,
+			то он бы уже проработал около {{format_time(worked_time * 30 * 12 * age)}}.</p>
+		{{/with}}
+		
+		<div style="background-color: red;
+			width: {{red * 100}}%;">
+			Небольшой блок красного цвета.
+		</div>
+		
+		<h2>Events.</h2>
+		
+		<button on-click="push_wonderful_button">Wonderful button!</button>
+		<p>Есть ещё парочка:</p>
+		<button on-click="push_bad_button">Bad button!</button>
+		<button on-click="push_good_button">Good button!</button>
+		<button on-click="push_silence_button">Пожалуйста, пусть при нажатии на эти кнопочки больше ничего
+		 не выводится при нажатии предыдущих двух.</button>
+		 
+		 <h2>Conditionals.</h2>
+		 
+		{{#if signedIn}}
+			<p>Вы уже зарегестрировались. Ваше имя: {{student.name}}. Можете спокойно продолжать работу.</p>
+		{{else}}
+			<p>Здравствуйте! Для регистрации нажмите кнопку:</p>
+			<button on-click="signIn_button">Зарегестрироваться!</button>
+		{{/if}}
+		
+		<h2>Lists.</h2>
+		<p>Для сортировки по какому-нибудь из признаков нажмите на название колонки. По умолчанию сортировка по рейтингу.</p>
+		
+		<table class="films">
+			<tr>
+				<th>#</th>
+				<th class="sortable {{sort_column === 'name' ? 'sorted' : ''}}" on-click="sort:name">Название фильма</th>
+				<th class="sortable {{sort_column === 'year' ? 'sorted' : ''}}" on-click="sort:year">Год</th>
+				<th class="sortable {{sort_column === 'country' ? 'sorted' : ''}}" on-click="sort:country">Страна</th>
+				<th class="sortable {{sort_column === 'rating' ? 'sorted' : ''}}" on-click="sort:rating">Рейтинг на кинопоиске</th>
+			</tr>
+			
+			{{#each sort(table_of_films, sort_column):index}}
+				<tr>
+					<td>{{index + 1}}</td>
+					<td>{{name}}</td>
+					<td>{{year}}</td>
+					<td>{{country}}</td>
+					<td>{{rating}}</td>
+				</tr>
+			{{/each}}
+			
+		</table>
+		
+	</script>
+		
+	<script src='first_try_ractive.js'></script>
+	
+</body>
